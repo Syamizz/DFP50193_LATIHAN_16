@@ -13,8 +13,7 @@ $program = [
         ],
         'Diploma Kejuteraan Awam'=>[
             'SPM',
-            'Sijil',
-            'Diploma'
+            'Sijil'
         ],
         'Diploma Seni Bina'=>[
             'SPM',
@@ -23,13 +22,40 @@ $program = [
     ],
     'Politeknik Sultan Haji Ahmad Shah' => [
         'Diploma Kejuruteraan Awam'=>[
-            'SPM'
+            'SPM',
+            'Sijil'
         ],
         'Diploma Seni Bina'=>[
-            'SPM'
+            'SPM',
+            'Sijil'
         ],
         'Diploma Geomatik'=>[
-            'SPM'
+            'SPM',
+            'Sijil'
+        ]
+    ]
+];
+
+$example = [
+    'Politeknik Ungku Omar' => [
+        'Sarjana Muda Teknologi Kejuteraan Awam Dengan Kepujian'=>[
+            'SPM',
+            'STPM'
+        ],
+        
+    ],
+    'Politeknik Sultan Haji Ahmad Shah' => [
+        'Diploma Kejuruteraan Awam'=>[
+            'SPM',
+            'Sijil Kolej Komuniti'
+        ],
+        'Diploma Seni Bina'=>[
+            'SPM',
+            'Sijil Kolej Komuniti'
+        ],
+        'Diploma Geomatik'=>[
+            'SPM',
+            'Sijil Kolej Komuniti'
         ]
     ]
 ];
@@ -45,13 +71,18 @@ $program = [
         *{
             font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th{
+            background: orange;
+        }
     </style>
 </head>
 <body>
     <h1>Senarai Program di Politeknik</h1>
-    <pre><?php
-        print_r($program);
-    ?></pre>
     <ul>
     <?php
     foreach ($program as $poli => $value){
@@ -71,6 +102,32 @@ $program = [
     }
     ?>
     </ul>
+
+    <table>
+        <tr style="background: red; color: white">
+            <td><b>PROGRAM</b></td>
+            <td><b>KELAYAKAN</b></td>
+        </tr>
+    <?php
+    foreach ($example as $poli => $value){
+        echo "<th colspan=2>$poli</th>";
+        echo "<tr>";
+        foreach ($value as $course =>$test){
+            echo "<td rowspan=2>$course</td>";
+            
+            foreach($test as $kelayakan){
+                echo "<td>$kelayakan</td>";
+                echo "<tr>";
+                
+            }
+            echo '</td>';
+            echo "</tr>";
+        }
+        echo '</tr>';
+        
+    }
+    ?>
+    </table>
     <!--<ul>
         <li>Politeknik Ungku Omar
             <ul>
