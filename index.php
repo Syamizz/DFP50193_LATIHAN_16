@@ -39,7 +39,6 @@ $program = [
 $example = [
     'Politeknik Ungku Omar' => [
         'Sarjana Muda Teknologi Kejuteraan Awam Dengan Kepujian'=>[
-            'SPM',
             'STPM'
         ],
         
@@ -110,8 +109,8 @@ $example = [
         </tr>
     <?php
     foreach ($example as $poli => $value){
-        echo "<th colspan=2>$poli</th>";
-        echo "<tr>";
+        echo "<tr><th colspan=2>$poli</th></tr>";
+ 
         foreach ($value as $course =>$test){
             echo "<td rowspan=2>$course</td>";
             
@@ -120,11 +119,10 @@ $example = [
                 echo "<tr>";
                 
             }
-            echo '</td>';
+  
             echo "</tr>";
         }
-        echo '</tr>';
-        
+     
     }
     ?>
     </table>
